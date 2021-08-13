@@ -11,13 +11,7 @@ namespace ExcelToJson
     {
         static void Main(string[] args)
         {
-            CreateJsonFile();
-
-            Console.WriteLine("\n\nDo you want to covert another file ? Y/N");
-            if (Console.ReadLine() == "Y")
-            { 
-            CreateJsonFile();
-            }
+            CreateJsonFile();            
         }
 
         private static void CreateJsonFile()
@@ -81,6 +75,12 @@ namespace ExcelToJson
             {
                 var error = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                 Console.WriteLine($"\n \n ***************************************************************** \n\n  Error :- {error}\n \n *****************************************************************");
+            }
+
+            Console.WriteLine("\n\nDo you want to covert another file ? Y/N");
+            if (Console.ReadLine() == "Y")
+            {
+                CreateJsonFile();
             }
         }
     }
